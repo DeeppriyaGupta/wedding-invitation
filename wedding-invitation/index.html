@@ -5,252 +5,349 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anupriya & Shreshth Wedding Invitation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font: Cormorant Garamond for elegant serif headlines/names, Inter for body -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* New Elegant Color Palette - Blush Pink & Rose Gold */
-        :root {
-            --primary-color: #A9687C; /* Deep Blush / Rose (Text/Contrast/Main Theme) */
-            --secondary-color: #B8860B; /* Copper/Rose Gold (Accent/Names - Using a standard gold hex for contrast) */
-            --bg-color: #FFF9F9; /* Very light Blush Background */
-            --text-light: #FFF9F9;
-            --text-dark: #333333;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            scroll-behavior: smooth;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAF9F7;
+            color: #5B4C3A;
+            line-height: 1.6;
         }
-        h1, h2, h3, .heading-font {
+        
+        .heading-font {
             font-family: 'Cormorant Garamond', serif;
         }
-        .text-gold {
-            color: var(--secondary-color);
-            text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.05);
-        }
-        .bg-primary { /* Custom class for the new primary background color */
-            background-color: var(--primary-color);
-        }
-        .border-gold {
-            border-color: var(--secondary-color);
-        }
-        .shadow-elegant {
-            /* Shadow adjusted to match the new primary color */
-            box-shadow: 0 10px 15px -3px rgba(169, 104, 124, 0.15), 0 4px 6px -2px rgba(169, 104, 124, 0.08);
-        }
-
-        /* Countdown specific styles */
-        .countdown-item {
+        
+        .hero-section {
+            background: linear-gradient(135deg, #858A66 0%, #A59676 100%);
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 20px); }
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .ganesha-box {
+            background: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ganesha-img {
             width: 80px;
             height: 80px;
-            margin: 0 8px;
-            background: rgba(169, 104, 124, 0.9); /* Semi-transparent Deep Blush */
-            color: var(--text-light);
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #A59676, transparent);
+            margin: 1.5rem 0;
+            width: 100%;
+        }
+        
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .countdown-item {
+            background: #5B4C3A;
+            color: #FAF9F7;
+            padding: 1rem 1.25rem;
             border-radius: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            min-width: 75px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(91, 76, 58, 0.3);
         }
+        
         .countdown-number {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 700;
+            display: block;
             font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
         }
+        
         .countdown-label {
-            font-size: 0.75rem;
-            font-weight: 300;
+            font-size: 0.65rem;
+            font-weight: 400;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+            display: block;
         }
-
-        /* Animated Photo Section Styling */
-        #animated-photo-section {
-            background-color: #F8F0F2; /* Slightly darker blush for contrast */
+        
+        .photo-section {
+            background-color: #F5F3F0;
+            padding: 3rem 1rem;
         }
+        
         .photo-container {
-            max-width: 600px;
-            margin: 0 auto;
-            border: 6px solid var(--secondary-color);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            max-width: 800px;
+            margin: 0 auto;
         }
+        
         .animated-image {
             width: 100%;
-            height: 800px; /* Fixed height for visual consistency */
-            /* Placeholder for the couple's photo, using the new color scheme */
+            height: 100%;
             background-image: url('couple.jpg');
             background-size: cover;
             background-position: center;
-            transition: transform 10s ease-in-out;
-            animation: subtle-scale 20s infinite alternate; /* Subtle zoom effect */
-        }
-        @keyframes subtle-scale {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
+            animation: kenburns 25s infinite alternate ease-in-out;
         }
         
-        /* Mobile Adjustments */
+        .animated-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @keyframes kenburns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+        
+        .venue-section {
+            background: linear-gradient(135deg, rgba(165, 150, 118, 0.08) 0%, rgba(133, 138, 102, 0.08) 100%);
+            padding: 3rem 1rem;
+        }
+        
+        .venue-card {
+            background: white;
+            border: 2px solid #A59676;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: #5B4C3A;
+            color: #FAF9F7;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 6px 16px rgba(91, 76, 58, 0.3);
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn-primary:hover {
+            background: #858A66;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(91, 76, 58, 0.4);
+        }
+        
+
         @media (max-width: 640px) {
+    .countdown-container {
+        display: flex;
+        justify-content: center;
+        gap: 0.25rem;
+        flex-wrap: nowrap;           /* prevent wrapping */
+        overflow-x: auto;            /* allow horizontal scroll if needed */
+        -webkit-overflow-scrolling: touch;
+        padding: 0.25rem;
+        white-space: nowrap;         /* ensure items stay on one line */
+    }
+
     .countdown-item {
-        width: 55px;
-        height: 55px;
-        margin: 0 3px;
+        flex: 0 0 auto;              /* don't grow/shrink */
+        min-width: 3.5rem;           /* ≈ 56px */
+        padding: 0.5rem 0.75rem;     /* smaller padding */
+        border-radius: 0.75rem;
+        margin: 0;
     }
+
     .countdown-number {
-        font-size: 1rem;
+        font-size: 1rem;             /* smaller number */
     }
+
     .countdown-label {
-        font-size: 0.55rem;
-        letter-spacing: 0.5px;
-    }
-    .animated-image {
-        height: 300px;
+        font-size: 0.55rem;          /* smaller label */
     }
 }
 
+
+
     </style>
 </head>
-<body class="min-h-screen">
-
-    <!-- Section 1: Invitation and Countdown -->
-    <section id="invitation-section" class="min-h-screen flex flex-col justify-center items-center text-center p-6 bg-primary text-gray-100 relative overflow-hidden">
-        
-        <!-- Lord Ganesha Invocation -->
-        <div class="pt-10 mb-8 z-10">
-            <!-- Placeholder for Ganesha Photo -->
-            <img src="lord.png" alt="Lord Ganesha Invocation" class="w-20 h-24 mx-auto object-cover rounded-full border-2 border-secondary-color shadow-lg">
-            <p class="text-sm mt-2 text-white heading-font font-medium tracking-widest">|| Vakratunda Mahakaya ||</p>
-        </div>
-
-        <!-- Gold decorative accents -->
-        <div class="absolute top-0 left-0 w-32 h-32 border-l-4 border-t-4 border-gold rounded-br-full opacity-30"></div>
-        <div class="absolute bottom-0 right-0 w-32 h-32 border-r-4 border-b-4 border-gold rounded-tl-full opacity-30"></div>
-
-        <div class="max-w-xl mx-auto py-16 px-8 bg-black bg-opacity-20 backdrop-blur-sm rounded-3xl shadow-elegant border-2 border-gold space-y-8 z-10">
-            <h1 class="text-3xl sm:text-4xl font-medium tracking-widest text-gold uppercase heading-font">
-                You Are Cordially Invited
-            </h1>
-            <div class="space-y-2">
-                <p class="text-xl sm:text-2xl font-light italic heading-font">To The Wedding Of</p>
-                <h2 class="text-7xl sm:text-9xl font-bold text-white leading-none tracking-tighter heading-font">
-                    Anupriya
-                </h2>
-                <p class="text-4xl sm:text-5xl font-light text-gold heading-font">&</p>
-                <h2 class="text-7xl sm:text-9xl font-bold text-white leading-none tracking-tighter heading-font">
-                    Shreshth
-                </h2>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="glass-card">
+            <!-- Ganesha -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <div class="ganesha-box">
+                    <img src="lord.png" alt="Lord Ganesha" class="ganesha-img">
+                </div>
+                <p style="font-size: 0.75rem; color: #858A66; letter-spacing: 2px; font-family: 'Cormorant Garamond', serif;">|| Vakratunda Mahakaya ||</p>
             </div>
+            
+            <!-- Main Content -->
+            <div style="text-align: center;">
+                <!-- <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: #858A66; margin-bottom: 1rem;">You Are Cordially Invited</p> -->
+                
+                <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 400; color: #5B4C3A; margin-bottom: 1rem;">You Are Cordially Invited</h1>
+                
+                <div class="divider"></div>
+                
+                <p class="heading-font" style="font-size: 1.1rem; color: #858A66; margin-bottom: 1.5rem;">To The Wedding Of</p>
+                
+                <div style="margin: 2rem 0;">
+                    <h2 class="heading-font" style="font-size: 3.5rem; font-weight: 400; color: #A59676; line-height: 1;">Anupriya</h2>
+                    <p class="heading-font" style="font-size: 2rem; color: #858A66; margin: 1rem 0;">&</p>
+                    <h2 class="heading-font" style="font-size: 3.5rem; font-weight: 400; color: #A59676; line-height: 1;">Shreshth</h2>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div style="margin-top: 1.5rem;">
+                    <p class="text-2xl sm:text-3xl text-gold font-light tracking-wider heading-font">It's time to celebrate!</p>
+                    <p class="heading-font" style="font-size: 1.75rem; color: #5B4C3A; margin-bottom: 0.5rem;">Sunday, November 2nd 2025</p>
 
-            <div class="pt-4 space-y-2">
-                <p class="text-2xl sm:text-3xl text-gold font-light tracking-wider heading-font">It's time to celebrate!</p>
-                <p class="text-3xl sm:text-4xl font-semibold text-white heading-font">Sunday, 2nd November 2025</p>
+                </div>
+                
+                <!-- Countdown -->
+                <div id="countdown-display" class="countdown-container"></div>
+                
+                <h3 id="big-day-message" class="heading-font" style="display: none; font-size: 2rem; color: #A59676; margin-top: 2rem;">The Celebration Begins Today! ✨</h3>
             </div>
-
-            <!-- Countdown Timer Area -->
-            <div id="countdown-display" class="pt-8 flex justify-center flex-wrap">
-                <!-- Countdown components will be inserted here by JavaScript -->
-            </div>
-
-            <!-- Big Day Message (Hidden by default) -->
-            <h3 id="big-day-message" class="hidden text-4xl font-bold text-gold mt-8 animate-pulse heading-font">
-                The big day is here!
-            </h3>
         </div>
     </section>
-
-    <!-- Section 2: Animated Photo (Couple Photo) -->
-    <section id="animated-photo-section" class="py-16 md:py-24 p-6 flex flex-col justify-center items-center">
-        <div class="max-w-xl mx-auto text-center space-y-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-primary-color heading-font">Our Story</h2>
-            <p class="text-lg text-gray-600 max-w-xl text-center heading-font italic">
-                💫 A little spark, a playful start — now forever locked in heart.
+    
+    <!-- Photo Section -->
+    <section class="photo-section">
+        <div style="text-align: center; margin-bottom: 2.5rem; padding: 0 1rem;">
+            <h2 class="heading-font" style="font-size: 2.5rem; font-weight: 400; color: #5B4C3A; margin-bottom: 1rem;">Our Journey</h2>
+            <p class="heading-font" style="font-size: 1.1rem; font-style: italic; color: #858A66; max-width: 600px; margin: 0 auto;">
+                From strangers to soulmates, our story is one of laughter, love, and endless adventures
             </p>
         </div>
         
-        <div class="photo-container mt-10">
-            <!-- Placeholder for Couple Photo with CSS subtle animation (subtle-scale) -->
-            <div class="animated-image"><img src="couple.jpg" alt="Anupriya & Shreshth"></div>
-            <!-- Caption overlay for the image -->
-            <div class="absolute inset-0 flex items-end justify-center pb-4">
-                <!--<p class="bg-black bg-opacity-30 text-white px-4 py-2 rounded-lg text-sm heading-font">Anupriya & Shreshth</p>-->
+        <div class="photo-container">
+            <div class="animated-image">
+                <img src="couple.jpg" alt="Anupriya & Shreshth">
             </div>
         </div>
     </section>
-
-    <!-- Section 3: Join Us Here (Venue Details) -->
-    <section id="join-us-here" class="py-16 md:py-24 p-6 bg-primary text-gray-100 flex flex-col justify-center items-center text-center">
-        <div class="max-w-2xl mx-auto space-y-8">
-            <h2 class="text-4xl sm:text-5xl font-bold text-gold heading-font">Join Us Here</h2>
+    
+    <!-- Venue Section -->
+    <section class="venue-section">
+        <div style="text-align: center;">
+            <h2 class="heading-font" style="font-size: 2.5rem; font-weight: 400; color: #5B4C3A; margin-bottom: 2.5rem;">Join Us Here</h2>
             
-            <div class="space-y-4">
-                <div class="p-6 bg-white text-gray-800 rounded-xl shadow-elegant">
-                    <h3 class="text-2xl font-semibold text-primary-color heading-font">Venue</h3>
-                    <p class="text-xl mt-2 font-medium heading-font">Era Garden, Naini, Prayagraj</p>
-                    <p class="text-sm mt-1 text-gray-500 font-light">(Please ensure you arrive on time to celebrate with us!)</p>
-                </div>
+            <div class="venue-card">
+                <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #858A66; margin-bottom: 0.75rem;">Venue</p>
+                <h3 class="heading-font" style="font-size: 2rem; color: #A59676; margin-bottom: 0.5rem;">Era Garden</h3>
+                <p style="font-size: 1.1rem; color: #5B4C3A; margin-bottom: 1.5rem;">Naini, Prayagraj</p>
                 
-                <!-- Updated map link with the actual venue name for better functionality -->
-                <a href="https://www.google.com/maps/search/?api=1&query=Era+Garden,+Naini,+Prayagraj" target="_blank" class="inline-block px-8 py-3 bg-secondary-color text-primary-color font-semibold rounded-full hover:opacity-90 transition duration-300 shadow-md heading-font">
-                    View on Map
+                <div class="divider"></div>
+                
+                <p style="font-size: 0.9rem; font-style: italic; color: #858A66; margin-bottom: 1rem;">
+                    Your presence will make our celebration complete
+                </p>
+                
+                <a href="https://www.google.com/maps/search/?api=1&query=Era+Garden,+Naini,+Prayagraj" target="_blank" class="btn-primary">
+                    Get Directions
                 </a>
             </div>
         </div>
     </section>
-
+    
     <script>
-        // --- Countdown Logic ---
-
-        // Set the date for the wedding: Sunday, 2nd November 2025
-        // Date format: YYYY-MM-DDTHH:MM:SS (T is required for time, setting to midnight)
         const weddingDate = new Date("2025-11-02T00:00:00").getTime();
         const countdownDisplay = document.getElementById('countdown-display');
         const bigDayMessage = document.getElementById('big-day-message');
-
+        
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
-
-            // Check if the countdown has finished
+            
             if (distance < 0) {
                 clearInterval(countdownInterval);
                 countdownDisplay.innerHTML = '';
-                bigDayMessage.classList.remove('hidden');
+                bigDayMessage.style.display = 'block';
                 return;
             }
-
-            // Time calculations for days, hours, minutes and seconds
+            
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Function to format the countdown item HTML
+            
             const formatItem = (number, label) => `
                 <div class="countdown-item">
                     <span class="countdown-number">${number < 10 ? '0' + number : number}</span>
                     <span class="countdown-label">${label}</span>
                 </div>
             `;
-
-            // Update the HTML content
+            
             countdownDisplay.innerHTML =
                 formatItem(days, 'Days') +
                 formatItem(hours, 'Hours') +
                 formatItem(minutes, 'Mins') +
                 formatItem(seconds, 'Secs');
         }
-
-        // Run the updateCountdown function every second
+        
         const countdownInterval = setInterval(updateCountdown, 1000);
-
-        // Initial call to display immediately on load
         updateCountdown();
     </script>
 </body>
 </html>
-
